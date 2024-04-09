@@ -1,6 +1,10 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on: 
+  schedule:
+    - cron:  '* * * * *'
+    # This runs at 10:00 AM UTC each day.
+    # * is a special character in YAML so you have to quote this string
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
