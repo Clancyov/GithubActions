@@ -2,7 +2,7 @@ name: Python_Script.py
 
 on:
   schedule:
-    - cron: '* * * * *'  # Runs every minute
+    - cron: '0 0 29 2 1'  # Runs every minute
 
 jobs:
   run_script:
