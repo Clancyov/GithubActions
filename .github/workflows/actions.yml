@@ -1,4 +1,4 @@
-name: Minute Job
+name: Python_Script.py
 
 on:
   schedule:
