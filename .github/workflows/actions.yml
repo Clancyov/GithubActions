@@ -20,10 +20,18 @@ jobs:
       - name: Run script
         run: python Python_Script.py
 
-      - name: Commit and push changes  # Name of the step
+      - name: Configure Git with email for GitHub Action bot  # Name of the step
+        run: git config --local user.email "aminachak8182@gmail.com"  # Configures Git with the email for the GitHub Action bot
+
+      - name: Configure Git with name for GitHub Action bot  # Name of the step
+        run: git config --local user.name "Clancyov"  # Configures Git with the name for the GitHub Action bot
+
+      - name: Add changes to staging area  # Name of the step
+        run: git add -A  # Adds all changes to the staging area
+
+      - name: Check for changes and commit if necessary  # Name of the step
         run: |  # Indicates a multiline shell script is coming
-          git config --local user.email "aminachak8182@gmail.com"  # Configures Git with the email for the GitHub Action bot
-          git config --local user.name "Clancyov"  # Configures Git with the name for the GitHub Action bot
-          git add -A  # Adds all changes to the staging area
           git diff-index --quiet HEAD || (git commit -a -m "Update logs" --allow-empty)  # Checks if there are any changes; if yes, commits the changes with a commit message "Update logs"
-          git push origin main  # Pushes the committed changes to the 'main' branch of the repository
+
+      - name: Push changes to repository  # Name of the step
+        run: git push origin main  # Pushes the committed changes to the 'main' branch of the repository
