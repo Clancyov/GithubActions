@@ -1,5 +1,4 @@
 from telethon.sync import TelegramClient
-from secrets_1 import secrets
 import os
 
 # Set up the Telegram client with your own account credentials
