@@ -18,7 +18,7 @@ async def main():
     group_entity = await client.get_entity(group_id)
 
     # Path to the folder containing images
-    folder_path = os.path.join(current_directory, 'T')
+    folder_path = os.path.join(current_directory, 'To_Send')
 
     # Iterate through the images in the folder
     for filename in os.listdir(folder_path):
