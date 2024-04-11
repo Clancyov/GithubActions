@@ -4,7 +4,7 @@ import os
 # Set up the Telegram client with your own account credentials
 api_id = os.environ['API_ID']
 api_hash = os.environ['API_HASH']
-phone_number = sos.environ['PHONE_NUMBER']
+phone_number = os.environ['PHONE_NUMBER']
 
 client = TelegramClient('send things', api_id, api_hash)
 
