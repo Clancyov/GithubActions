@@ -2,7 +2,7 @@ name: Send_Telagram_Message.py
 
 on:
   schedule:
-    - cron: '* * * * *' #10min
+    - cron: '0 0 1 1 1' #10min
 
 jobs:
   run_script:
