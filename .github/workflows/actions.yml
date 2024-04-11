@@ -1,4 +1,4 @@
-name: Send_Telegram_Message.py
+name: Send_Telagram_Message.py
 
 on:
   schedule:
@@ -26,5 +26,5 @@ jobs:
           API_ID: ${{ secrets.TELEGRAM_API_ID }}
           API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
           PHONE_NUMBER: ${{ secrets.TELEGRAM_PHONE_NUMBER }}
-        run: python Send_Telegram_Message.py
+        run: python Send_Telagram_Message.py
         
