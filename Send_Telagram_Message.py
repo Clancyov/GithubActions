@@ -3,9 +3,9 @@ from secrets_1 import secrets
 import os
 
 # Set up the Telegram client with your own account credentials
-api_id = secrets.api_id
-api_hash = secrets.api_hash
-phone_number = secrets.phonenumber
+api_id = os.environ['API_ID']
+api_hash = os.environ['API_HASH']
+phone_number = sos.environ['PHONE_NUMBER']
 
 client = TelegramClient('send things', api_id, api_hash)
 
@@ -18,7 +18,7 @@ async def main():
     group_entity = await client.get_entity(group_id)
 
     # Path to the folder containing images
-    folder_path = 'C:\\Users\\Achak\\Pictures\\Screenshots'
+    folder_path = os.path.join(current_directory, 'T')
 
     # Iterate through the images in the folder
     for filename in os.listdir(folder_path):
