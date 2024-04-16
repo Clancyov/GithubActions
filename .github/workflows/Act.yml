@@ -1,8 +1,9 @@
 name: Send_Telagram_Message.py
 
 on:
-  schedule:
-    - cron: '0 0 1 1 1' #10min
+  push:
+    branches:
+      - main 
 
 jobs:
   run_script:
@@ -22,9 +23,19 @@ jobs:
           pip install telethon
           
       - name: Run script
-        env:
-          API_ID: ${{ secrets.TELEGRAM_API_ID }}
-          API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
-          PHONE_NUMBER: ${{ secrets.TELEGRAM_PHONE_NUMBER }}
-        run: python Send_Telagram_Message.py
+        run: python make_file.py
+
+      - name: commit files
+        run: |
+          git config --local user.email "aminachak8182@gmail.com"
+          git config --local user.name "Clancyov"
+          git add -A
+          git status
+          git diff-index --quiet HEAD || (git commit -a -m "updated files" --allow-empty)
+
+      - name: push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.PUSHER_TOKEN }}
+          branch: main 
         
